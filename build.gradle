@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+}
+
+group 'hercerm.tutorial.hibernate'
+version '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("8")
+    targetCompatibility = JavaVersion.toVersion("8")
+}
+
+// Repositories to resolve dependencies.
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Persistence.
+    implementation 'org.hibernate:hibernate-core:5.4.27.Final'
+    implementation 'mysql:mysql-connector-java:5.0.8'
+
+    // Testing.
+    testImplementation 'junit:junit:4.13.2'
+}
+
+jar {
+  manifest {
+   attributes 'Main-Class': 'hercerm.tutorial.hibernate.App'
+  }
+}
